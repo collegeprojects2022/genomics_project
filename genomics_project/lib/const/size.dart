@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-double sizeFromHeight(BuildContext context, double fraction,
+double height(BuildContext context, double fraction,
     {bool hasAppBar = true}) {
   final screenHeight = MediaQuery.of(context).size.height;
   fraction = (hasAppBar
@@ -12,7 +12,7 @@ double sizeFromHeight(BuildContext context, double fraction,
   return fraction;
 }
 
-double sizeFromWidth(
+double width(
   BuildContext context,
   double fraction,
 ) {
