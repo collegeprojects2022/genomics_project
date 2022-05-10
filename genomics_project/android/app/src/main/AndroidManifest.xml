@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.genomics_project">
    <application
-        android:label="genomics_project"
+        android:label="Autism Finder"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

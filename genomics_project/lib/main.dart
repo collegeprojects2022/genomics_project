@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:genomics_project/screens/navigation/view.dart';
+import 'package:genomics_project/screens/splach_screen/view.dart';
 void main()=>  runApp(const MyApp());
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -14,8 +15,9 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: NavigationScreen(),
+        body:SplashScreen(),
       )
     );
   }
 }
+

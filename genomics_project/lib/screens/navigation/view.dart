@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:genomics_project/screens/home_screen/view.dart';
-import 'package:genomics_project/screens/notification_screen/view.dart';
-import 'package:genomics_project/screens/splach_screen/view.dart';
+import 'package:genomics_project/screens/history_screen/view.dart';
+import 'package:genomics_project/screens/profile/view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../const/colors.dart';
@@ -17,8 +17,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
   int index = 0;
   List screen = [
     const HomeScreen(),
-    const NotificationScreen(),
-    const SplashScreen(),
+    const HistoryScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -48,7 +48,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.notifications), label: 'Notification'),
+                  icon: Icon(Icons.history), label: 'History'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.person), label: 'Profile'),
             ]),

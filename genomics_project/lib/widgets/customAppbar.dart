@@ -19,7 +19,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: const ImageIcon(AssetImage('assets/Menu.png')),
+        icon: const ImageIcon(AssetImage('assets/menu.png')),
         onPressed: () => Scaffold.of(context).openDrawer(),
       ),
       backgroundColor: blue1,

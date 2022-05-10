@@ -1,8 +1,10 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:genomics_project/const/size.dart';
 import 'package:genomics_project/screens/symptoms_screen/view.dart';
 import 'package:genomics_project/widgets/customAppbar.dart';
+import 'package:genomics_project/widgets/custom_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../const/colors.dart';
@@ -26,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         preferredSize: Size(width(context, 1), 50),
       ),
-      drawer: Drawer(),
+      drawer: const CustomDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,12 +41,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           InkWell(
-            onTap: () {
+            onTap: () async {
+              var  result = await FilePicker.platform.pickFiles();
               setState(() {
-                uploaded = true;
+                if(result!.paths.isNotEmpty){
+                  uploaded = true;
+                }
+                else {
+                  uploaded = false;
+                }
+                //uploaded = true;
               });
               if (kDebugMode) {
+                print('-------------------------------');
                 print(uploaded);
+                print('-------------------------------');
+                print(result!.files.first.path);
               }
             },
             child: Container(
@@ -96,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Text(
-                        'Autismfile.fastq',
+                        'Autism file.fastq',
                         style: GoogleFonts.cairo(
                             fontSize: 16,
                             color: blue2,
@@ -109,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SymptomsScreen()));
+                              builder: (context) =>  SymptomsScreen()));
                     },
                     child: Container(
                         alignment: Alignment.center,

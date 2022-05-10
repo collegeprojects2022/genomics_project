@@ -1,10 +1,15 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:genomics_project/screens/history_screen/view.dart';
+import 'package:genomics_project/screens/profile/view.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../const/colors.dart';
 import '../const/size.dart';
+import '../screens/articles/view.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({  Key? key}) : super(key: key);
+  const CustomDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +32,18 @@ class CustomDrawer extends StatelessWidget {
             itemCount: data.length,
             itemBuilder: (context, index) {
               return InkWell(
+                onTap: () {
+                  if (kDebugMode) {
+                    print(data[index]['Route']);
+                  }
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => data[index]['Route']));
+                },
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 15.0, vertical: 10),
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -58,9 +72,29 @@ class CustomDrawer extends StatelessWidget {
 }
 
 List<Map<String, dynamic>> data = [
-  {'icon': 'person.png', 'title': 'Profile'},
-  {'icon': 'puzzle.png', 'title': 'Type of autism'},
-  {'icon': 'notifications.png', 'title': 'Notification'},
-  {'icon': 'setting.png', 'title': 'Setting'},
-  {'icon': 'Help.png', 'title': 'Help'},
+  {
+    'icon': 'person.png',
+    'title': 'Profile',
+    'Route': const ProfileScreen(),
+  },
+  {
+    'icon': 'puzzle.png',
+    'title': 'Type of autism',
+    'Route': const TypesOfAutism(),
+  },
+  {
+    'icon': 'notifications.png',
+    'title': 'Notification',
+    'Route': const HistoryScreen(),
+  },
+  {
+    'icon': 'setting.png',
+    'title': 'Setting',
+    'Route': const ProfileScreen(),
+  },
+  {
+    'icon': 'Help.png',
+    'title': 'Help',
+    'Route': const ProfileScreen(),
+  },
 ];
